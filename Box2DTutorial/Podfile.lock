@@ -1,0 +1,11 @@
+
+DEPENDENCIES: 
+- box2d (~> 2.3)
+
+COCOAPODS: 0.16.1
+
+SPEC CHECKSUMS: 
+  box2d: 091fdf7e8b74bc74f20803734370b8492096ea04
+
+PODS: 
+- box2d (2.3.0)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		76C24BE4D77D48799377D2C8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D45278346184E588F501265 /* libPods.a */; };
 		CB64CFD016B3E86400CA05BF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB64CFCF16B3E86400CA05BF /* UIKit.framework */; };
 		CB64CFD216B3E86400CA05BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB64CFD116B3E86400CA05BF /* Foundation.framework */; };
 		CB64CFD416B3E86400CA05BF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB64CFD316B3E86400CA05BF /* CoreGraphics.framework */; };
@@ -36,10 +37,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		64201E0ECC9842989AAC0335 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		6D45278346184E588F501265 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB64CFCB16B3E86400CA05BF /* Box2DTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Box2DTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB64CFCF16B3E86400CA05BF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		CB64CFD116B3E86400CA05BF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		CB64CFD316B3E86400CA05BF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CB64CFCF16B3E86400CA05BF /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CB64CFD116B3E86400CA05BF /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CB64CFD316B3E86400CA05BF /* CoreGraphics.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		CB64CFD716B3E86400CA05BF /* Box2DTutorial-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Box2DTutorial-Info.plist"; sourceTree = "<group>"; };
 		CB64CFD916B3E86400CA05BF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CB64CFDB16B3E86400CA05BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -68,6 +71,7 @@
 				CB64CFD016B3E86400CA05BF /* UIKit.framework in Frameworks */,
 				CB64CFD216B3E86400CA05BF /* Foundation.framework in Frameworks */,
 				CB64CFD416B3E86400CA05BF /* CoreGraphics.framework in Frameworks */,
+				76C24BE4D77D48799377D2C8 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +95,7 @@
 				CB64CFF916B3E86400CA05BF /* Box2DTutorialTests */,
 				CB64CFCE16B3E86400CA05BF /* Frameworks */,
 				CB64CFCC16B3E86400CA05BF /* Products */,
+				64201E0ECC9842989AAC0335 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,6 +115,7 @@
 				CB64CFD116B3E86400CA05BF /* Foundation.framework */,
 				CB64CFD316B3E86400CA05BF /* CoreGraphics.framework */,
 				CB64CFF316B3E86400CA05BF /* SenTestingKit.framework */,
+				6D45278346184E588F501265 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -170,6 +176,7 @@
 				CB64CFC716B3E86400CA05BF /* Sources */,
 				CB64CFC816B3E86400CA05BF /* Frameworks */,
 				CB64CFC916B3E86400CA05BF /* Resources */,
+				4A4744E8B7FA4CDFB857081A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -250,6 +257,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4A4744E8B7FA4CDFB857081A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
 		CB64CFF016B3E86400CA05BF /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -376,6 +397,7 @@
 		};
 		CB64D00516B3E86400CA05BF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64201E0ECC9842989AAC0335 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Box2DTutorial/Box2DTutorial-Prefix.pch";
@@ -387,6 +409,7 @@
 		};
 		CB64D00616B3E86400CA05BF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64201E0ECC9842989AAC0335 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Box2DTutorial/Box2DTutorial-Prefix.pch";
@@ -449,6 +472,7 @@
 				CB64D00616B3E86400CA05BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CB64D00716B3E86400CA05BF /* Build configuration list for PBXNativeTarget "Box2DTutorialTests" */ = {
 			isa = XCConfigurationList;
@@ -457,6 +481,7 @@
 				CB64D00916B3E86400CA05BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

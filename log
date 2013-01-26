@@ -1,1 +1,5 @@
 1. Create new Xcode project/Single View Application/iPad only
+2. Install cocoapods
+3. setup podfile
+4. pod install
+5. Open workspace
