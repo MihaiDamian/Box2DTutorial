@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		76C24BE4D77D48799377D2C8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D45278346184E588F501265 /* libPods.a */; };
+		CB60A0CA16B43A4400D6BD5A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB60A0C916B43A4400D6BD5A /* QuartzCore.framework */; };
 		CB64CFD016B3E86400CA05BF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB64CFCF16B3E86400CA05BF /* UIKit.framework */; };
 		CB64CFD216B3E86400CA05BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB64CFD116B3E86400CA05BF /* Foundation.framework */; };
 		CB64CFD416B3E86400CA05BF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB64CFD316B3E86400CA05BF /* CoreGraphics.framework */; };
@@ -24,6 +25,7 @@
 		CB64CFF616B3E86400CA05BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB64CFD116B3E86400CA05BF /* Foundation.framework */; };
 		CB64CFFE16B3E86400CA05BF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB64CFFC16B3E86400CA05BF /* InfoPlist.strings */; };
 		CB64D00116B3E86400CA05BF /* Box2DTutorialTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB64D00016B3E86400CA05BF /* Box2DTutorialTests.m */; };
+		CB9A42D816B402BC005F65EC /* World.mm in Sources */ = {isa = PBXBuildFile; fileRef = CB9A42D716B402BC005F65EC /* World.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +41,7 @@
 /* Begin PBXFileReference section */
 		64201E0ECC9842989AAC0335 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		6D45278346184E588F501265 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB60A0C916B43A4400D6BD5A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CB64CFCB16B3E86400CA05BF /* Box2DTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Box2DTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB64CFCF16B3E86400CA05BF /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CB64CFD116B3E86400CA05BF /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -61,6 +64,8 @@
 		CB64CFFD16B3E86400CA05BF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CB64CFFF16B3E86400CA05BF /* Box2DTutorialTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Box2DTutorialTests.h; sourceTree = "<group>"; };
 		CB64D00016B3E86400CA05BF /* Box2DTutorialTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Box2DTutorialTests.m; sourceTree = "<group>"; };
+		CB9A42D616B402BC005F65EC /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
+		CB9A42D716B402BC005F65EC /* World.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = World.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB60A0CA16B43A4400D6BD5A /* QuartzCore.framework in Frameworks */,
 				CB64CFD016B3E86400CA05BF /* UIKit.framework in Frameworks */,
 				CB64CFD216B3E86400CA05BF /* Foundation.framework in Frameworks */,
 				CB64CFD416B3E86400CA05BF /* CoreGraphics.framework in Frameworks */,
@@ -115,6 +121,7 @@
 				CB64CFD116B3E86400CA05BF /* Foundation.framework */,
 				CB64CFD316B3E86400CA05BF /* CoreGraphics.framework */,
 				CB64CFF316B3E86400CA05BF /* SenTestingKit.framework */,
+				CB60A0C916B43A4400D6BD5A /* QuartzCore.framework */,
 				6D45278346184E588F501265 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -128,6 +135,8 @@
 				CB64CFE716B3E86400CA05BF /* MainStoryboard.storyboard */,
 				CB64CFEA16B3E86400CA05BF /* ViewController.h */,
 				CB64CFEB16B3E86400CA05BF /* ViewController.m */,
+				CB9A42D616B402BC005F65EC /* World.h */,
+				CB9A42D716B402BC005F65EC /* World.mm */,
 				CB64CFD616B3E86400CA05BF /* Supporting Files */,
 			);
 			path = Box2DTutorial;
@@ -294,6 +303,7 @@
 				CB64CFDC16B3E86400CA05BF /* main.m in Sources */,
 				CB64CFE016B3E86400CA05BF /* AppDelegate.m in Sources */,
 				CB64CFEC16B3E86400CA05BF /* ViewController.m in Sources */,
+				CB9A42D816B402BC005F65EC /* World.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
