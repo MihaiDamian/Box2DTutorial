@@ -96,7 +96,7 @@
     b2Body *circle = _world->CreateBody(&bodyDef);
 
     b2CircleShape shape;
-    shape.m_radius = PointsToMeters(view.frame.size.width);
+    shape.m_radius = PointsToMeters(view.frame.size.width / 2);
 
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &shape;
