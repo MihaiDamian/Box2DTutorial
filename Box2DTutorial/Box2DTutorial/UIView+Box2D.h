@@ -10,8 +10,6 @@
 #import <box2d/Box2D.h>
 
 
-// All conversions take into account screen scale
-
 float32 PointsToMeters(CGFloat points);
 CGFloat MetersToPoints(float32 meters);
 

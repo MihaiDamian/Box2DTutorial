@@ -27,7 +27,6 @@ CGFloat MetersToPoints(float32 meters)
 b2Vec2 CGPointTob2Vec2(CGPoint point)
 {
     float32 x = PointsToMeters(point.x);
-    // Box2D's y axis is the inverse of UIKit's y axis
     float32 y = PointsToMeters(point.y);
     return b2Vec2(x, y);
 }

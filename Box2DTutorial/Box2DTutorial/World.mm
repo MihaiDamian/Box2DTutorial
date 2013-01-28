@@ -20,7 +20,7 @@
     NSMutableArray *_circles;
 }
 
-- (id)initWithView:(UIView*)view
+- (id)initWithFrame:(CGRect)frame
 {
     self = [super init];
     if(self != nil)
@@ -29,7 +29,7 @@
         _world = new b2World(gravity);
         _circles = [NSMutableArray array];
         
-        [self createScreenBoundsForFrame:view.frame];
+        [self createScreenBoundsForFrame:frame];
         [self setupAniamtionLoop];
     }
     
@@ -81,7 +81,6 @@
         b2Body *circle = (b2Body*)[circleWrapper pointerValue];
         UIView *view = (__bridge UIView*)circle->GetUserData();
         CGPoint center = b2Vec2ToCGPoint(circle->GetPosition());
-        NSLog(@"%f %f", center.x, center.y);
         view.center = center;
     }
 }
@@ -102,6 +101,7 @@
     fixtureDef.shape = &shape;
     fixtureDef.density = 1.0f;
     fixtureDef.friction = 0.3f;
+    fixtureDef.restitution = 0.8f;
 
     circle->CreateFixture(&fixtureDef);
     // Associate the body with the passed in view

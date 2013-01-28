@@ -11,7 +11,7 @@
 
 @interface World : NSObject
 
-- (id)initWithView:(UIView*)view;
+- (id)initWithFrame:(CGRect)frame;
 
 // Assumes view is already part of a view controller's view hierarchy
 - (void)addCircleWithView:(UIView*)view;
