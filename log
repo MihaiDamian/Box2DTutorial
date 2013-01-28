@@ -4,7 +4,8 @@
 1.4 pod install
 1.5 Open workspace
 
-2.1 Create a world object
-2.2 Create screen bounds
-2.3 Create a ball object
-2.4 Set up an animation loop
+2.1 Create function for converting from UIKit to Box2D coordinates
+2.2 Create a world object
+2.3 Create screen bounds
+2.4 Create a ball object
+2.5 Set up an animation loop

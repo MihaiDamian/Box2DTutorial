@@ -7,6 +7,7 @@
 //
 
 #import "World.h"
+#import "UIView+Box2D.h"
 
 #import <box2d/Box2D.h>
 #import <QuartzCore/QuartzCore.h>
@@ -16,19 +17,19 @@
 {
     b2World *_world;
     b2Body *_screenBounds;
-    b2Body *_ball;
+    NSMutableArray *_circles;
 }
 
-- (id)init
+- (id)initWithView:(UIView*)view
 {
     self = [super init];
     if(self != nil)
     {
-        b2Vec2 gravity(0.0f, -10.0f);
+        b2Vec2 gravity(0.0f, 10.0f);
         _world = new b2World(gravity);
+        _circles = [NSMutableArray array];
         
-        [self createScreenBounds];
-        [self createBall];
+        [self createScreenBoundsForFrame:view.frame];
         [self setupAniamtionLoop];
     }
     
@@ -40,40 +41,23 @@
     delete _world;
 }
 
-- (void)createScreenBounds
+- (void)createScreenBoundsForFrame:(CGRect)frame
 {
     b2BodyDef screenBoundsDef;
     screenBoundsDef.position.Set(0.0f, 0.0f);
     _screenBounds = _world->CreateBody(&screenBoundsDef);
     
     b2Vec2 worldEdges[5];
-    worldEdges[0].Set(0.0f, 0.0f);
-    worldEdges[1].Set(0.0f, 10.0f);
-    worldEdges[2].Set(10.0f, 10.0f);
-    worldEdges[3].Set(10.0f, 0.0f);
-    worldEdges[4].Set(0.0f, 0.0f);
+    
+    worldEdges[0] = b2Vec2(CGPointTob2Vec2(frame.origin));
+    worldEdges[1] = b2Vec2(CGPointTob2Vec2(CGPointMake(CGRectGetMinX(frame), CGRectGetMaxY(frame))));
+    worldEdges[2] = b2Vec2(CGPointTob2Vec2(CGPointMake(CGRectGetMaxX(frame), CGRectGetMaxY(frame))));
+    worldEdges[3] = b2Vec2(CGPointTob2Vec2(CGPointMake(CGRectGetMaxX(frame), CGRectGetMinY(frame))));
+    worldEdges[4] = b2Vec2(CGPointTob2Vec2(frame.origin));
     
     b2ChainShape worldShape;
     worldShape.CreateChain(worldEdges, 5);
     _screenBounds->CreateFixture(&worldShape, 0.0f);
-}
-
-- (void)createBall
-{
-    b2BodyDef bodyDef;
-    bodyDef.type = b2_dynamicBody;
-    bodyDef.position.Set(5.0f, 5.0f);
-    _ball = _world->CreateBody(&bodyDef);
-    
-    b2CircleShape shape;
-    shape.m_radius = 1;
-    
-    b2FixtureDef fixtureDef;
-    fixtureDef.shape = &shape;
-    fixtureDef.density = 1.0f;
-    fixtureDef.friction = 0.3f;
-    
-    _ball->CreateFixture(&fixtureDef);
 }
 
 - (void)setupAniamtionLoop
@@ -91,9 +75,39 @@
     
     _world->Step(timeDelta, velocityIterations, positionIterations);
     
-    b2Vec2 position = _ball->GetPosition();
-    float32 angle = _ball->GetAngle();
-    NSLog(@"%4.2f %4.2f %4.2f\n", position.x, position.y, angle);
+    // Adjust position for all views associated with circle bodies
+    for(NSValue *circleWrapper in _circles)
+    {
+        b2Body *circle = (b2Body*)[circleWrapper pointerValue];
+        UIView *view = (__bridge UIView*)circle->GetUserData();
+        CGPoint center = b2Vec2ToCGPoint(circle->GetPosition());
+        NSLog(@"%f %f", center.x, center.y);
+        view.center = center;
+    }
+}
+
+- (void)addCircleWithView:(UIView*)view
+{
+    NSAssert(view.superview != nil, @"The view parameter is not part of a view hierarchy");
+    
+    b2BodyDef bodyDef;
+    bodyDef.type = b2_dynamicBody;
+    bodyDef.position = CGPointTob2Vec2(view.center);
+    b2Body *circle = _world->CreateBody(&bodyDef);
+
+    b2CircleShape shape;
+    shape.m_radius = PointsToMeters(view.frame.size.width);
+
+    b2FixtureDef fixtureDef;
+    fixtureDef.shape = &shape;
+    fixtureDef.density = 1.0f;
+    fixtureDef.friction = 0.3f;
+
+    circle->CreateFixture(&fixtureDef);
+    // Associate the body with the passed in view
+    circle->SetUserData((__bridge void*)view);
+    
+    [_circles addObject:[NSValue valueWithPointer:circle]];
 }
 
 @end
