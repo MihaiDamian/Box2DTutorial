@@ -9,19 +9,17 @@
 #import "UIView+Box2D.h"
 
 
-static const CGFloat kPixelToMeterRatio = 32.0;
+static const CGFloat kPointsToMeterRatio = 32.0;
 
 
 float32 PointsToMeters(CGFloat points)
 {
-    CGFloat pixels = points * [[UIScreen mainScreen] scale];
-    return pixels / kPixelToMeterRatio;
+    return points / kPointsToMeterRatio;
 }
 
 CGFloat MetersToPoints(float32 meters)
 {
-    CGFloat pixels = meters * kPixelToMeterRatio;
-    return pixels / [[UIScreen mainScreen] scale];
+    return meters * kPointsToMeterRatio;
 }
 
 b2Vec2 CGPointTob2Vec2(CGPoint point)
