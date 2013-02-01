@@ -29,7 +29,7 @@
         _circles = [NSMutableArray array];
         
         [self createScreenBoundsForFrame:frame];
-        [self setupAniamtionLoop];
+        [self setupAnimationLoop];
     }
     
     return self;
@@ -59,7 +59,7 @@
     screenBounds->CreateFixture(&worldShape, 0.0f);
 }
 
-- (void)setupAniamtionLoop
+- (void)setupAnimationLoop
 {
     CADisplayLink *displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(animationLoop:)];
     [displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
