@@ -16,7 +16,6 @@
 @implementation World
 {
     b2World *_world;
-    b2Body *_screenBounds;
     NSMutableArray *_circles;
 }
 
@@ -45,7 +44,7 @@
 {
     b2BodyDef screenBoundsDef;
     screenBoundsDef.position.Set(0.0f, 0.0f);
-    _screenBounds = _world->CreateBody(&screenBoundsDef);
+    b2Body *screenBounds = _world->CreateBody(&screenBoundsDef);
     
     b2Vec2 worldEdges[5];
     
@@ -57,7 +56,7 @@
     
     b2ChainShape worldShape;
     worldShape.CreateChain(worldEdges, 5);
-    _screenBounds->CreateFixture(&worldShape, 0.0f);
+    screenBounds->CreateFixture(&worldShape, 0.0f);
 }
 
 - (void)setupAniamtionLoop
