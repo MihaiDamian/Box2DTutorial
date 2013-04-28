@@ -1,4 +1,4 @@
-Box2DTutorial
+Box2D Tutorial
 =============
 
 A tutorial on using Box2D in a UIKit based app.
